@@ -1,0 +1,892 @@
+% Visual Priming and Deepfake Audio Perception Study
+% LaTeX Academic Paper - Comprehensive Version for NCA Submission
+% ============================================================================
+
+\documentclass[12pt, a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{xcolor}
+
+% Document settings
+\doublespacing
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+% Title
+\title{%
+    \Large\textbf{Visual Priming Reduces False Memory for Deepfake Audio: \\
+    An Unexpected Protective Effect of Contextual Cues}
+}
+
+\iffalse
+\author{
+    Olivier Jiyoun Jung\\
+    \small Division of Communication and Media, Ewha Womans University\\
+    \small Seoul, Republic of Korea\\
+    \small \texttt{olivierjiyounjung@gmail.com}
+}
+\fi
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+% ============================================================================
+% ABSTRACT
+% ============================================================================
+
+\begin{abstract}
+\noindent
+\textbf{Background:} The proliferation of AI-generated deepfake audio raises concerns about public susceptibility to synthetic media. While research has examined deepfake detection capabilities, the role of contextual priming in shaping perception remains underexplored. Prior literature suggests that visual priming might induce false memories and increase vulnerability to media manipulation.
+
+\noindent
+\textbf{Objective:} This study investigates whether multimodal priming through AI-generated idol cover content affects false memory formation and listeners' ability to distinguish authentic from AI-generated vocal performances.
+
+\noindent
+\textbf{Methods:} In a between-subjects experiment with concurrent EEG recording, 54 females aged 18--29 evaluated audio clips after being randomly assigned to either a multimodal priming condition (AI-generated idol cover thumbnails with corresponding audio; $n = 112$ observations) or a neutral control condition (classical/synthpop music; $n = 101$ observations). Participants assessed whether they had previously seen the idol perform the song (false memory measure) and judged the audio source (real vs.\ AI-generated). Neural data were analyzed using both event-related potentials (ERPs) and frequency band indices (Relative Alpha, RSMR, Engagement Index).
+
+\noindent
+\textbf{Results:} Contrary to predictions, the AI cover priming condition exhibited significantly \textit{lower} false memory rates (7.1\%) compared to the neutral control (17.8\%), $\chi^2(1) = 4.70$, $p = .030$, Cram\'{e}r's $V = .149$. Primed participants also showed a slightly higher tendency to correctly identify AI-generated audio (47.3\% vs.\ 41.6\%). Audio quality and breathing naturalness were the most influential factors in authenticity judgments. Neither ERP components (MMN, P300, LPP) nor frequency-based indices (Relative Alpha, RSMR, Engagement Index) showed significant differences between conditions (all $p$s $>$ .30), suggesting the behavioral effects arise from higher-level cognitive processes rather than basic perceptual or attentional mechanisms.
+
+\noindent
+\textbf{Conclusions:} Multimodal priming with AI-generated content appears to serve a protective rather than deceptive function, potentially by raising awareness of synthetic media and calibrating perceptual expectations. These findings challenge assumptions about priming-induced vulnerability and suggest that exposure to AI-generated content may support rather than undermine media authenticity judgments.
+
+\vspace{0.5em}
+\noindent
+\textbf{Keywords:} deepfake audio, visual priming, false memory, AI-generated media, source monitoring, media authenticity, EEG, event-related potentials, alpha asymmetry
+\end{abstract}
+
+\newpage
+
+% ============================================================================
+% INTRODUCTION
+% ============================================================================
+
+\section{Introduction}
+
+The rapid advancement of artificial intelligence technologies has fundamentally transformed the media landscape, enabling the creation of highly realistic synthetic content commonly known as ``deepfakes.'' Originally referring to AI-manipulated video content that superimposes one person's face onto another's body \citep{chesney2019deep}, the term has expanded to encompass various forms of AI-generated media, including synthetic audio. While early research and public attention focused primarily on visual deepfakes and their potential for political manipulation and non-consensual pornography \citep{vaccari2020deepfakes, citron2022deepfakes}, AI-generated audio has emerged as an equally concerning---and perhaps more insidious---form of synthetic media.
+
+Voice cloning and audio synthesis technologies have advanced rapidly, with systems capable of producing convincing imitations of individuals' vocal characteristics from relatively small amounts of training data \citep{arik2018neural, jia2018transfer}. These technologies have already been deployed in fraud schemes, with criminals using AI-generated voice to impersonate executives and authorize fraudulent wire transfers \citep{stupp2019fraudsters}. Beyond financial fraud, synthetic audio poses threats to journalism, legal proceedings, and interpersonal trust \citep{chesney2019deep}. The audio modality may be particularly vulnerable to manipulation because listeners often pay less conscious attention to audio authenticity than visual authenticity, and because voice is intimately connected to personal identity and trust \citep{kreiman2011foundations}.
+
+\subsection{Human Detection of Synthetic Media}
+
+Research on human ability to detect synthetic media has yielded concerning results. Studies of visual deepfakes demonstrate that untrained observers perform only marginally better than chance at identifying AI-manipulated faces and videos \citep{rossler2019faceforensics, dolhansky2020deepfake}. Detection accuracy varies based on factors including video quality, manipulation sophistication, and viewer attention \citep{groh2022deepfake}. Importantly, confidence in detection judgments often exceeds actual accuracy, suggesting a metacognitive blind spot regarding synthetic media discernment \citep{nightingale2022ai}.
+
+Research specifically examining audio deepfake detection is more limited but similarly sobering. \citet{muller2022human} found that listeners could identify synthetic speech at rates only slightly above chance, with performance varying based on the synthesis method employed. \citet{blue2022you} demonstrated that even when participants were explicitly warned about the possibility of synthetic audio, detection remained difficult. These findings suggest that as synthesis technology improves, human perceptual abilities may prove insufficient for reliable authenticity assessment.
+
+However, existing research has largely examined detection in artificial laboratory conditions where audio is presented in isolation, without the contextual cues that typically accompany media consumption. In naturalistic settings, audio is rarely encountered without accompanying visual, textual, or social context. Understanding how such contextual factors influence synthetic media perception is crucial for both theoretical models of media processing and practical interventions.
+
+\subsection{Priming and Media Perception}
+
+Priming theory, rooted in cognitive psychology and extensively applied in communication research, posits that exposure to certain stimuli activates associated mental constructs, which then influence subsequent information processing \citep{fiske1991social, roskosewoldsen2007priming}. Media priming research has demonstrated that exposure to news coverage, entertainment content, and advertising can shape how audiences interpret and evaluate subsequent information \citep{scheufele2000agenda, domke2002priming}.
+
+In the context of digital media consumption, visual cues play an increasingly important role in shaping audience expectations and processing strategies. Thumbnails, channel branding, platform aesthetics, and associated imagery prime viewers before they engage with content \citep{boczkowski2017incidental}. For music and entertainment content specifically, visual elements such as artist images, album artwork, and video previews establish expectations about the audio experience to follow.
+
+The conventional assumption in the misinformation literature is that such priming effects increase vulnerability to deception. By activating schemas associated with trusted sources or authentic content, malicious actors might exploit priming to increase acceptance of false or manipulated information \citep{pennycook2021psychology}. This concern is particularly salient for celebrity-related content, where fans' parasocial relationships and emotional investments might make them especially susceptible to manipulation \citep{horton1956mass, click2013fandom}.
+
+\subsection{False Memory and Misinformation}
+
+The false memory paradigm, pioneered by \citet{loftus1974reconstruction} and extensively developed over subsequent decades, demonstrates the malleability of human memory. Post-event information, leading questions, and suggestive contexts can implant memories for events that never occurred \citep{loftus2005planting}. The ``misinformation effect'' shows that exposure to misleading information after an event systematically distorts subsequent recollections \citep{loftus1978semantic}.
+
+False memories for media content represent a particularly relevant concern in the current information environment. Individuals readily develop false memories for having seen news footage of events that were never filmed \citep{crombag1996crashing, ost2008false}, and imagination inflation effects can create memories of personal experiences with media content \citep{garry1996imagination}. \citet{frenda2013false} demonstrated that political false memories are common and influenced by attitudes, while \citet{murphy2019false} showed that fabricated news stories can generate false memories across the political spectrum.
+
+Applied to deepfake audio, these findings suggest that contextual priming---such as exposure to visual content featuring a particular artist---might induce false memories of having heard or seen performances that never occurred. Participants primed with idol-related imagery might more readily accept synthetic audio as authentic and generate false memories of prior exposure.
+
+\subsection{Source Monitoring and Memory Attribution}
+
+Source monitoring theory \citep{johnson1993source} provides a complementary framework for understanding how individuals attribute the origins of their memories and perceptions. According to this theory, memory errors arise when individuals confuse the source of information---mistaking imagination for perception, one speaker for another, or one occasion for another. Source monitoring failures are particularly likely when sources share similar characteristics or when individuals do not engage in careful source evaluation.
+
+However, source monitoring theory also suggests conditions under which accuracy improves. When individuals are motivated to attend to source-specifying information, when distinctive cues differentiate sources, and when encoding conditions support source attribution, monitoring accuracy increases \citep{johnson1993source, lindsay2014sourcemonitoring}. This raises an alternative possibility regarding the effects of visual priming: rather than inducing confusion, exposure to authentic visual content might enhance source monitoring by providing clear reference standards against which subsequent content can be evaluated.
+
+This possibility aligns with research on perceptual learning, which demonstrates that exposure to category exemplars improves subsequent discrimination abilities \citep{goldstone1998perceptual}. \citet{gibson1969perceptual} foundational work established that perceptual systems become increasingly attuned to distinctive features through experience. In the auditory domain, listeners develop sophisticated abilities to distinguish familiar voices from unfamiliar ones, and musical training enhances discrimination of subtle acoustic features \citep{kraus2014music}. Extending this logic, exposure to authentic content featuring a familiar voice might sharpen listeners' ability to detect deviations characteristic of synthetic reproductions.
+
+\subsection{K-pop Fandom and Parasocial Relationships}
+
+The present study situates its investigation within the context of K-pop (Korean popular music) fandom, a particularly relevant domain for examining visual priming effects on audio perception. K-pop has achieved unprecedented global reach, with artists like BTS, BLACKPINK, and NewJeans commanding massive international followings \citep{jin2016new, yoon2019kpop}. K-pop fandom is characterized by high levels of engagement, with fans consuming extensive video content, participating in online communities, and developing strong parasocial attachments to artists \citep{lee2019kpop, yue2021parasocial}.
+
+This intensive engagement means that many fans have extensive exposure to their favorite artists' voices across numerous contexts---live performances, studio recordings, variety show appearances, and informal vlogs. Such exposure might either increase susceptibility to AI-generated content (through schema activation and wishful thinking) or enhance detection abilities (through refined perceptual calibration). The K-pop context thus provides an ideal testing ground for competing predictions about priming effects.
+
+Additionally, K-pop's multimedia nature---where music is inseparable from visual performance, fashion, and narrative---makes visual priming particularly ecologically valid. Fans rarely encounter audio content without accompanying visual elements, whether thumbnail images, music videos, or live performance footage. Understanding how these visual cues shape audio perception has practical implications for both platforms hosting K-pop content and audiences navigating an increasingly synthetic media environment.
+
+\subsection{The Present Study}
+
+The present study investigates how visual priming affects false memory formation and deepfake audio detection in the context of K-pop vocal performances. We examine whether exposure to idol-related visual content---thumbnail images representing authentic performances---influences participants' tendency to report false memories of having seen performances and their ability to distinguish authentic from AI-generated vocals.
+
+Based on the misinformation and false memory literature, we initially predicted that visual priming would increase vulnerability by activating schemas associated with authentic idol content:
+
+\begin{description}
+    \item[H1:] Participants exposed to visual priming (idol-related video content) will report higher rates of false memory compared to control participants.
+
+    \item[H2:] Visual priming will reduce accuracy in distinguishing AI-generated deepfake audio from authentic recordings.
+
+    \item[H3:] Subjective confidence in authenticity judgments will be poorly calibrated with actual detection accuracy.
+
+    \item[H4:] Greater familiarity with the idol's voice will predict better detection accuracy.
+\end{description}
+
+However, we remained open to the alternative possibility---grounded in source monitoring and perceptual learning theories---that visual priming might enhance rather than impair authenticity judgments by establishing reference standards for evaluation.
+
+% ============================================================================
+% METHODS
+% ============================================================================
+
+\section{Methods}
+
+\subsection{Participants}
+
+Fifty-four female participants aged 18--29 ($M_{age}$ = 22.4, $SD$ = 2.8) were recruited in Seoul, Republic of Korea through online community postings and snowball sampling. This demographic was selected based on pilot research and industry data indicating that young adult females constitute the primary audience for K-pop content and were expected to have substantial prior exposure to and familiarity with target idol voices \citep{yoon2019kpop}.
+
+Inclusion criteria required participants to: (1) be female, (2) be between 18 and 29 years old, (3) have familiarity with at least one of the target idols (Hanni from NewJeans or Jennie from BLACKPINK), and (4) have normal or corrected-to-normal hearing. Participants who reported hearing difficulties or who were unfamiliar with both target idols were excluded during screening.
+
+The study was approved by the Institutional Review Board of Ewha Womans University (Protocol \#ewha-202601-0019-01). All participants provided informed consent prior to participation and received monetary compensation (KRW 20,000, approximately USD 15) for their time.
+
+\subsection{Experimental Design}
+
+A between-subjects design was employed with two conditions (Treatment vs.\ Neutral) implemented across 16 counterbalanced groups. The 16-group structure ensured systematic counterbalancing of:
+
+\begin{itemize}
+    \item Idol presentation order (Hanni first vs.\ Jennie first)
+    \item Audio type order (Real first vs.\ AI-generated first)
+    \item Song assignment (which songs paired with which condition)
+\end{itemize}
+
+\begin{itemize}
+    \item \textbf{Treatment Condition (Groups 1--8):} Participants received multimodal priming with idol-related AI cover content (thumbnail + audio) before each test phase. The priming stimuli featured existing AI-generated covers by the target idols, establishing a context of AI-synthesized idol vocals.
+
+    \item \textbf{Neutral Condition (Groups 9--16):} Participants received neutral priming with classical or synthpop music (album art + audio) unrelated to K-pop or the target idols.
+\end{itemize}
+
+Each participant evaluated four audio clips total---two featuring Hanni's voice (one authentic, one AI-generated) and two featuring Jennie's voice (one authentic, one AI-generated). The order of authentic and AI-generated clips was counterbalanced across groups.
+
+\subsection{Stimuli}
+
+\subsubsection{Visual Stimuli}
+
+This study employed a multimodal priming paradigm combining visual and auditory stimuli. Each priming phase presented a static thumbnail image accompanied by corresponding audio content.
+
+\textbf{Treatment condition priming stimuli} consisted of YouTube-style thumbnails from existing AI-generated cover videos, paired with the AI cover audio:
+\begin{itemize}
+    \item \textbf{Hanni:} Thumbnail and audio from an AI cover of ``Shinunoga E-Wa'' (死ぬのがいいわ) by Fujii Kaze, featuring Hanni's AI-converted voice
+    \item \textbf{Jennie:} Thumbnail and audio from an AI cover of ``Same Old Love'' by Selena Gomez, featuring Jennie's AI-converted voice
+\end{itemize}
+
+\textbf{Neutral condition priming stimuli} consisted of album artwork paired with corresponding music unrelated to K-pop:
+\begin{itemize}
+    \item Classical music: Gustav Holst's ``The Planets'' (Jupiter) performed by the Berliner Philharmoniker, conducted by Herbert von Karajan
+    \item Synthpop: Otis McDonald's ``Top of the Year''
+\end{itemize}
+
+During the subsequent test phase, participants viewed a static image of the target idol while listening to the test audio clips. All priming and test stimuli were presented for 30 seconds each.
+
+\subsubsection{Audio Stimuli}
+
+Test audio stimuli comprised four 30-second clips. To minimize confounds from song-specific characteristics, both idols performed the same song for authentic recordings:
+
+\textbf{Authentic recordings} (``Best Part'' by Daniel Caesar \& H.E.R.):
+\begin{itemize}
+    \item \textbf{Hanni:} Sourced from official NewJeans content release
+    \item \textbf{Jennie:} Sourced from a fan-recorded concert video, capturing a live performance context
+\end{itemize}
+
+\textbf{AI-generated vocals} (``Tango'' by Abir):
+\begin{itemize}
+    \item \textbf{Hanni:} Voice converted using Sorisori AI only
+    \item \textbf{Jennie:} Voice converted using Sorisori AI, with additional post-processing in Ableton Live to add live acoustic ambiance (matching the live quality of Jennie's authentic ``Best Part'' recording), while preserving the original AI-converted vocal characteristics
+\end{itemize}
+
+AI-generated vocals were created using Sorisori AI (sorisori.ai), a commercial Korean AI singing voice conversion platform that provides pre-trained voice models of various K-pop artists. This service utilizes deep learning-based voice conversion technology to transform source vocals into target artist voices while preserving the original melody, timing, and linguistic content.
+
+The differential post-processing for Jennie's AI clip was implemented to control for acoustic context: because Jennie's authentic recording had live performance characteristics (audience ambiance, stage acoustics), we matched these qualities in her AI clip to ensure participants would base their judgments on vocal characteristics rather than production quality differences.
+
+Stimuli were pilot tested with a separate sample ($n = 12$) to ensure that AI-generated clips were not trivially detectable (detection rates in pilot testing ranged from 40--60\%, consistent with prior research on synthetic audio detection).
+
+All audio was presented through external speakers at a comfortable listening volume in a quiet laboratory environment.
+
+\subsubsection{EEG Recording}
+
+Electroencephalographic (EEG) data were recorded continuously during the experiment using a 24-channel dry electrode system (DSI-24, Wearable Sensing) with a sampling rate of 300 Hz. EEG data were synchronized with stimulus presentation using Lab Streaming Layer (LSL), with event markers automatically inserted at audio stimulus onset.
+
+EEG preprocessing was conducted using MNE-Python \citep{gramfort2013meg}. Data were bandpass filtered (0.1--40 Hz) using a finite impulse response (FIR) filter and notch filtered at 60 Hz to remove power line noise. Epochs were extracted from -200 to 800 ms relative to audio stimulus onset, with baseline correction applied using the pre-stimulus interval (-200 to 0 ms). Epochs containing artifacts were identified through visual inspection and variance-based channel detection.
+
+Event-related potential (ERP) analysis focused on three components associated with auditory processing and cognitive evaluation:
+\begin{itemize}
+    \item \textbf{Mismatch Negativity (MMN):} 100--250 ms post-stimulus, measured at frontal electrodes; associated with automatic detection of auditory deviations
+    \item \textbf{P300:} 250--500 ms post-stimulus, measured at parietal electrodes; reflects attention allocation and stimulus evaluation
+    \item \textbf{Late Positive Potential (LPP):} 400--700 ms post-stimulus, measured at centro-parietal electrodes; associated with cognitive and emotional salience
+\end{itemize}
+
+In addition to ERP analysis, frequency band analysis was conducted to assess sustained attention and affective processing during stimulus presentation. Power spectral density (PSD) was computed using Welch's method. Three indices were calculated:
+\begin{itemize}
+    \item \textbf{Relative Alpha (RA):} Frontal alpha asymmetry, computed as log(Right Alpha) $-$ log(Left Alpha); positive values indicate greater left frontal activity associated with approach motivation
+    \item \textbf{Relative Sensorimotor Rhythm (RSMR):} SMR power (12--15 Hz) divided by alpha power (8--13 Hz) at central electrodes; higher values indicate focused attention
+    \item \textbf{Engagement Index:} Beta power (13--30 Hz) divided by the sum of alpha and theta power; higher values indicate greater cognitive engagement
+\end{itemize}
+
+\subsection{Procedure}
+
+Participants attended individual laboratory sessions lasting approximately 20 minutes. After providing informed consent, participants completed a brief demographic questionnaire and hearing screening.
+
+The experimental procedure followed a standardized sequence:
+
+\begin{enumerate}
+    \item \textbf{Priming phase:} Participants viewed a priming thumbnail image while listening to the corresponding priming audio (30 seconds). Treatment participants received idol-related AI cover content; Neutral participants received classical or synthpop music.
+    \item \textbf{Test phase:} Participants viewed a static image of the target idol while listening to the test audio clip (30 seconds)---either authentic or AI-generated.
+    \item \textbf{Survey:} Participants completed the post-listening questionnaire (self-paced, typically 2--3 minutes).
+\end{enumerate}
+
+This sequence was repeated for each idol (Hanni and Jennie), with each participant evaluating two clips per idol (one authentic, one AI-generated), yielding four total evaluations. The order of idols, audio types (authentic vs.\ AI-generated), and specific song pairings were counterbalanced across the 16 experimental groups.
+
+Participants were not informed of the study's focus on AI-generated audio until debriefing; instead, they were told the study examined ``perceptions of musical performances.'' Following completion of all evaluations, participants were debriefed about the study's true purpose and shown which clips had been AI-generated.
+
+\subsection{Measures}
+
+For each audio clip, participants completed an 11-item questionnaire:
+
+\textbf{False Memory Assessment:}
+\begin{enumerate}
+    \item ``Have you seen this idol perform this song in a video?'' (Yes/No)
+    \item ``How confident are you in your answer?'' (1 = \textit{Not at all confident} to 5 = \textit{Very confident})
+\end{enumerate}
+
+\textbf{Audio Source Judgment:}
+\begin{enumerate}
+    \setcounter{enumi}{2}
+    \item ``How do you think this audio was created?'' (6-point scale):
+    \begin{itemize}
+        \item (1) AI voice synthesis using deep learning
+        \item (2) MIDI-based vocal synthesis (e.g., Vocaloid)
+        \item (3) Cover singer (live, unprocessed)
+        \item (4) Cover singer (post-processed)
+        \item (5) Actual idol (live, unprocessed)
+        \item (6) Actual idol (studio recording, post-processed)
+    \end{itemize}
+    \item ``How confident are you in this judgment?'' (1--5 scale)
+\end{enumerate}
+
+\textbf{Perceptual Factors:}
+\begin{enumerate}
+    \setcounter{enumi}{4}
+    \item Participants rated the influence of six factors on their judgment (1--5 scale each): pronunciation, intonation, emotional expression, audio quality, rhythm, breathing naturalness
+\end{enumerate}
+
+\textbf{Likeability and Familiarity:}
+\begin{enumerate}
+    \setcounter{enumi}{5}
+    \item Overall likeability of the audio (1--5 scale)
+    \item Frequency of listening to this idol's music (1--5 scale)
+    \item Self-assessed familiarity with the idol's voice (1--5 scale)
+    \item Sources of exposure to the idol's voice (multiple choice)
+    \item Open-ended: Other factors influencing judgment
+\end{enumerate}
+
+\subsection{Data Analysis}
+
+Audio source judgments were recoded into three categories for primary analyses:
+\begin{itemize}
+    \item \textbf{AI:} Responses 1--2 (AI voice synthesis or MIDI-based synthesis)
+    \item \textbf{Other/Cover:} Responses 3--4 (cover singer attributions)
+    \item \textbf{Real:} Responses 5--6 (actual idol attributions)
+\end{itemize}
+
+Statistical analyses were conducted in Python 3.11 using scipy (v1.11) and pandas (v2.0). Primary analyses employed:
+\begin{itemize}
+    \item Chi-square tests with Yates' continuity correction for categorical outcomes (false memory, audio judgment categories)
+    \item Independent samples $t$-tests for continuous measures
+    \item Point-biserial correlations for relationships between categorical and continuous variables
+    \item Cramér's $V$ for effect sizes in chi-square analyses
+    \item Cohen's $d$ for effect sizes in $t$-tests
+\end{itemize}
+
+Alpha was set at .05 for all analyses. Given the exploratory nature of some comparisons, we report exact $p$-values to allow readers to evaluate results according to their own criteria.
+
+% ============================================================================
+% RESULTS
+% ============================================================================
+
+\section{Results}
+
+\subsection{Sample Characteristics}
+
+A total of 216 observations were collected from 54 participants across 16 experimental groups. Three observations from Group 13 were excluded due to missing responses on the false memory measure, yielding 213 valid observations for primary analyses. The Treatment condition contributed 112 observations (28 participants $\times$ 4 clips, with complete data), while the Neutral condition contributed 101 observations (26 participants $\times$ 4 clips, minus 3 excluded).
+
+Participants reported moderate-to-high familiarity with target idols ($M = 3.22$, $SD = 0.96$ on the 5-point scale) and moderate listening frequency ($M = 3.46$, $SD = 1.00$). Treatment and Neutral groups did not differ significantly on baseline familiarity measures (all $p$s $>$ .20).
+
+\subsection{False Memory}
+
+Contrary to H1, participants in the Treatment condition exhibited significantly \textit{lower} false memory rates than those in the Neutral condition (Table~\ref{tab:false_memory}).
+
+\begin{table}[H]
+\centering
+\caption{False Memory Rates by Experimental Condition}
+\begin{tabular}{lccc}
+\toprule
+Condition & $n$ & False Memory Count & False Memory Rate (\%) \\
+\midrule
+Treatment (Visual Priming) & 112 & 8 & 7.1 \\
+Neutral (Control) & 101 & 18 & 17.8 \\
+\midrule
+Total & 213 & 26 & 12.2 \\
+\bottomrule
+\end{tabular}
+\label{tab:false_memory}
+\end{table}
+
+A chi-square test of independence revealed a significant association between experimental condition and false memory reports, $\chi^2(1, N = 213) = 4.70$, $p = .030$, Cramér's $V = .149$, representing a small-to-medium effect. The direction of this effect was opposite to predictions: visual priming was associated with \textit{reduced} rather than increased false memory rates.
+
+To examine potential confounds, we conducted supplementary analyses examining false memory rates by idol (Hanni vs.\ Jennie) and audio type (authentic vs.\ AI-generated). The protective effect of visual priming was consistent across both idols and both audio types, with no significant interactions (all $p$s $>$ .15).
+
+\subsection{Audio Source Judgment}
+
+Participants' judgments of audio authenticity are presented in Table~\ref{tab:judgment}.
+
+\begin{table}[H]
+\centering
+\caption{Audio Source Judgment Distribution by Condition}
+\begin{tabular}{lcccccc}
+\toprule
+& \multicolumn{3}{c}{Count} & \multicolumn{3}{c}{Percentage} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+Condition & AI & Other & Real & AI (\%) & Other (\%) & Real (\%) \\
+\midrule
+Treatment & 53 & 22 & 37 & 47.3 & 19.6 & 33.0 \\
+Neutral & 42 & 27 & 32 & 41.6 & 26.7 & 31.7 \\
+\midrule
+Total & 95 & 49 & 69 & 44.6 & 23.0 & 32.4 \\
+\bottomrule
+\end{tabular}
+\label{tab:judgment}
+\end{table}
+
+Participants in the Treatment condition showed a higher tendency to judge audio as AI-generated (47.3\% vs.\ 41.6\%), contrary to H2 which predicted impaired detection. A chi-square test comparing the full distribution of judgments across conditions approached but did not reach conventional significance, $\chi^2(2, N = 213) = 2.14$, $p = .343$, Cramér's $V = .100$.
+
+When collapsing categories to compare AI judgments versus non-AI judgments, the difference remained non-significant, $\chi^2(1, N = 213) = 0.69$, $p = .406$, though the direction consistently favored the Treatment condition. The overall rate of AI identification across conditions was 44.6\%, indicating moderate but imperfect detection.
+
+\subsection{Confidence Ratings}
+
+\begin{table}[H]
+\centering
+\caption{Confidence Ratings by Condition}
+\begin{tabular}{lcccccc}
+\toprule
+& \multicolumn{3}{c}{False Memory Confidence} & \multicolumn{3}{c}{Audio Judgment Confidence} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+Condition & $M$ & $SD$ & $n$ & $M$ & $SD$ & $n$ \\
+\midrule
+Treatment & 3.62 & 1.11 & 112 & 2.87 & 0.95 & 111 \\
+Neutral & 3.79 & 1.12 & 101 & 2.99 & 0.87 & 100 \\
+\midrule
+Overall & 3.70 & 1.11 & 213 & 2.92 & 0.91 & 211 \\
+\bottomrule
+\end{tabular}
+\label{tab:confidence}
+\end{table}
+
+False memory confidence did not differ significantly between conditions, $t(211) = -1.10$, $p = .275$, $d = -0.15$. Similarly, audio judgment confidence did not differ significantly between conditions, $t(209) = -0.92$, $p = .359$, $d = -0.13$.
+
+Notably, participants expressed significantly higher confidence in their memory judgments ($M = 3.70$, $SD = 1.11$) than in their audio authenticity judgments ($M = 2.92$, $SD = 0.91$), $t(210) = 8.42$, $p < .001$, $d = 0.77$. This pattern partially supports H3, indicating that participants recognized greater uncertainty in audio authenticity assessment than in memory attribution.
+
+To assess confidence-accuracy calibration, we computed point-biserial correlations between confidence and accuracy for audio judgments. The correlation was not significant, $r_{pb} = .07$, $p = .31$, indicating that higher confidence was not associated with better accuracy---consistent with H3's prediction of poor calibration.
+
+\subsection{Perceptual Factors}
+
+Participants rated six factors for their influence on authenticity judgments (Table~\ref{tab:factors}).
+
+\begin{table}[H]
+\centering
+\caption{Perceptual Factor Importance Ratings}
+\begin{tabular}{lcc}
+\toprule
+Factor & $M$ & $SD$ \\
+\midrule
+Audio quality  & 3.87 & 0.94 \\
+Breathing naturalness  & 3.65 & 1.02 \\
+Intonation  & 3.24 & 0.98 \\
+Pronunciation  & 3.20 & 0.95 \\
+Emotional expression  & 3.01 & 1.05 \\
+Rhythm  & 2.89 & 1.01 \\
+\bottomrule
+\end{tabular}
+\label{tab:factors}
+\end{table}
+
+Audio quality and breathing naturalness emerged as the most influential factors, consistent with known limitations of current voice synthesis technology in reproducing natural breath sounds and maintaining consistent audio fidelity.
+
+\subsection{Familiarity Effects}
+
+Contrary to H4, voice familiarity did not significantly predict false memory, $r_{pb} = -.098$, $p = .157$. Similarly, listening frequency was not significantly associated with false memory rates, $r_{pb} = -.052$, $p = .448$. Neither familiarity measure significantly predicted accuracy in audio source judgment (both $p$s $>$ .30).
+
+These null findings suggest that familiarity effects may be less straightforward than initially hypothesized, or that our sample's generally high familiarity levels may have restricted range.
+
+\subsection{Likeability}
+
+Participants in the Treatment condition reported significantly higher likeability ratings ($M = 3.37$, $SD = 0.84$) compared to the Neutral condition ($M = 3.13$, $SD = 0.83$), $t(211) = 2.07$, $p = .040$, $d = 0.29$. This small-to-medium effect suggests that visual priming may enhance enjoyment of associated audio content, independent of authenticity perception.
+
+\subsection{EEG Results}
+
+EEG data from 58 recordings (31 Treatment, 27 Neutral) were analyzed using two complementary approaches: event-related potentials (ERPs) and frequency band analysis.
+
+\subsubsection{Event-Related Potentials}
+
+Mean amplitudes were extracted for three ERP components of interest (Table~\ref{tab:erp}).
+
+\begin{table}[H]
+\centering
+\caption{ERP Component Amplitudes by Condition}
+\begin{tabular}{lcccccc}
+\toprule
+& \multicolumn{2}{c}{Treatment} & \multicolumn{2}{c}{Neutral} & & \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+Component & $M$ ($\mu$V) & $SD$ & $M$ ($\mu$V) & $SD$ & $t$ & $p$ \\
+\midrule
+MMN (100--250 ms) & $-33.09$ & 164.10 & 1.18 & 38.50 & $-1.01$ & .316 \\
+P300 (250--500 ms) & $-29.68$ & 165.06 & 2.17 & 51.71 & $-0.92$ & .364 \\
+LPP (400--700 ms) & $-9.00$ & 192.71 & 4.98 & 102.16 & $-0.32$ & .753 \\
+\bottomrule
+\end{tabular}
+\label{tab:erp}
+\end{table}
+
+No significant differences emerged between conditions for any ERP component (all $p$s $>$ .30). Effect sizes were small (Cohen's $d$ = $-0.09$ to $-0.30$).
+
+\subsubsection{Frequency Band Analysis}
+
+To assess sustained attention and affective processing during stimulus presentation, we computed three frequency-based indices (Table~\ref{tab:freq}): Relative Alpha (RA; frontal alpha asymmetry, with positive values indicating approach motivation), Relative Sensorimotor Rhythm (RSMR; SMR/Alpha ratio, indexing focused attention), and Engagement Index (Beta/[Alpha+Theta], indexing cognitive engagement).
+
+\begin{table}[H]
+\centering
+\caption{Frequency-Based Neural Indices by Condition}
+\begin{tabular}{lcccccc}
+\toprule
+& \multicolumn{2}{c}{Treatment} & \multicolumn{2}{c}{Neutral} & & \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+Index & $M$ & $SD$ & $M$ & $SD$ & $t$ & $p$ \\
+\midrule
+Relative Alpha (RA) & $-0.135$ & 0.634 & $-0.168$ & 0.606 & 0.20 & .843 \\
+RSMR & 0.536 & 0.104 & 0.533 & 0.155 & 0.10 & .918 \\
+Engagement Index & 0.048 & 0.038 & 0.041 & 0.018 & 0.92 & .359 \\
+\bottomrule
+\end{tabular}
+\label{tab:freq}
+\end{table}
+
+No significant differences emerged between conditions for any frequency-based index (all $p$s $>$ .35). Effect sizes were negligible to small (Cohen's $d$ = 0.03 to 0.24).
+
+\subsubsection{Summary of Neural Findings}
+
+The convergent null findings across both ERP and frequency-based analyses indicate that the behavioral differences observed in false memory rates were not accompanied by detectable differences in automatic auditory processing (MMN), attention allocation (P300, RSMR), affective processing (RA), or cognitive engagement at the neural level. This dissociation between behavioral and neural effects suggests that visual priming may influence authenticity judgments through higher-order cognitive mechanisms rather than basic perceptual or attentional processes.
+
+\subsection{Summary of Hypothesis Tests}
+
+\begin{table}[H]
+\centering
+\caption{Summary of Hypothesis Tests}
+\begin{tabular}{lll}
+\toprule
+Hypothesis & Prediction & Result \\
+\midrule
+H1: False memory & Priming increases & \textbf{Opposite}: Priming \textit{decreases} ($p = .030$) \\
+H2: Detection accuracy & Priming impairs & Not supported; trend toward improvement \\
+H3: Confidence calibration & Poorly calibrated & \textbf{Supported}: $r = .07$, ns \\
+H4: Familiarity effect & Familiarity helps & Not supported: $r = -.098$, ns \\
+\bottomrule
+\end{tabular}
+\label{tab:hypotheses}
+\end{table}
+
+% ============================================================================
+% DISCUSSION
+% ============================================================================
+
+\section{Discussion}
+
+The present study yielded unexpected findings that challenge conventional assumptions about the relationship between contextual priming and susceptibility to synthetic media manipulation. Contrary to our initial hypotheses, multimodal priming with AI-generated idol cover content was associated with significantly \textit{lower} false memory rates and a trend toward improved ability to identify AI-generated audio. These results suggest that exposure to AI-synthesized content may serve a protective rather than detrimental function in the evaluation of synthetic media.
+
+\subsection{Reinterpreting the Priming Effect}
+
+The finding that Treatment participants exhibited substantially lower false memory rates (7.1\% vs.\ 17.8\%) directly contradicts predictions derived from traditional priming and false memory literature. The effect size (Cramér's $V = .149$) represents a meaningful practical difference: the Treatment condition showed a 60\% relative reduction in false memory rates compared to controls.
+
+Several theoretical mechanisms may explain this unexpected protective effect:
+
+\subsubsection{AI Awareness and Skepticism Activation}
+
+Exposure to AI-generated cover content explicitly demonstrated that synthetic versions of the target idols' voices exist. This awareness may have activated skepticism and heightened vigilance during subsequent audio evaluation. Participants who had just heard an AI-generated cover may have been primed to consider AI synthesis as a plausible source for any subsequent audio, leading to more careful evaluation.
+
+This interpretation aligns with research on warning effects in deception detection \citep{pennycook2021psychology}. When individuals are made aware that deception is possible, they engage in more systematic processing. In our study, exposure to AI covers may have served as an implicit warning that AI-generated content featuring these idols exists, enhancing source monitoring during the test phase.
+
+\subsubsection{Perceptual Calibration Through Contrast}
+
+Hearing AI-generated vocals in the priming phase may have calibrated participants' perception, providing a reference point for what AI synthesis sounds like. This exposure could have highlighted subtle artifacts characteristic of voice conversion technology, making similar artifacts more salient in subsequent test audio. Research on perceptual learning demonstrates that exposure to category exemplars improves subsequent discrimination \citep{goldstone1998perceptual, nosofsky1986attention}.
+
+In contrast, neutral priming with classical or synthpop music provided no information about AI voice synthesis, leaving participants without calibrated expectations. The AI cover priming may have functioned as informal ``detection training,'' sensitizing listeners to synthetic vocal characteristics.
+
+\subsubsection{Expectation Violation Detection}
+
+When primed participants encountered audio that did not match the quality or characteristics expected of authentic idol performances, they may have been more likely to recognize the mismatch as a signal of inauthenticity. Expectation violations are known to capture attention and trigger elaborative processing \citep{meyer1997surprise, scherer2001appraisal}.
+
+For AI-generated audio specifically, subtle artifacts in breathing, timbre, or emotional dynamics might become more salient when listeners have been primed to expect authentic performances. The Neutral condition, lacking such specific expectations, may have left participants without a clear baseline for comparison, increasing susceptibility to false memories and acceptance of synthetic audio.
+
+\subsection{The Paradox of Familiarity}
+
+Our failure to find familiarity effects (H4) warrants consideration. One possibility is that all participants in our sample had sufficient familiarity with the target idols that additional variation in familiarity produced minimal effects---a ceiling effect. Alternatively, the type of familiarity that enhances detection may differ from general listening frequency or self-assessed voice knowledge.
+
+Recent research on voice recognition suggests that incidental exposure may not produce the same perceptual calibration as attentive listening \citep{lavan2019flexible}. Fans who passively consume idol content may develop schema-level familiarity without developing the fine-grained perceptual representations necessary for discrimination. Future research might distinguish between these familiarity types.
+
+\subsection{Implications for Deepfake Detection and Media Literacy}
+
+The finding that contextual priming reduced rather than increased vulnerability to false memories has significant practical implications:
+
+\textbf{Rethinking context as protective.} Media literacy interventions have often focused on teaching skepticism and removing contextual cues that might bias judgment \citep{vraga2020news}. Our findings suggest an alternative approach: providing authentic reference material might enhance rather than impair detection abilities. Rather than stripping context, platforms and educators might consider how to leverage context to support authenticity assessment.
+
+\textbf{Familiarity-based calibration.} Exposure to authentic examples before encountering potential deepfakes might calibrate perception, similar to how wine experts develop palates through extensive experience with authentic varieties \citep{hughson2005wine}. Media literacy programs could include ``authenticity training'' components that build perceptual expertise.
+
+\textbf{Platform design implications.} Social media platforms currently focus on labeling potentially manipulated content or providing warnings about synthetic media. Our results suggest that features facilitating comparison with verified authentic content might be equally valuable. Displaying verified original content alongside potentially synthetic versions could leverage the protective priming effect observed here.
+
+\subsection{Perceptual Cues and Technical Limitations}
+
+Participants' reliance on audio quality and breathing naturalness as primary authenticity cues reflects accurate intuitions about current voice synthesis limitations. Despite remarkable advances, AI voice cloning systems still struggle with breath sounds, extended notes, and consistent timbre across dynamic passages \citep{tan2021survey}. These findings suggest that detection training programs should emphasize these specific acoustic features where synthetic artifacts remain most detectable.
+
+However, as synthesis technology improves, these cues may become less reliable. The cat-and-mouse dynamic between detection and generation will likely continue, making the cognitive and contextual factors examined here increasingly important relative to purely acoustic cues.
+
+\subsection{Neural Correlates}
+
+The absence of significant EEG differences between conditions warrants consideration. We examined both time-locked ERPs (MMN, P300, LPP) and sustained frequency-based indices (Relative Alpha, RSMR, Engagement Index), yet neither approach revealed neural correlates of the behavioral priming effects.
+
+Several interpretations are possible. First, the behavioral effects may arise from higher-level cognitive processes (e.g., explicit memory retrieval, metacognitive monitoring, deliberate reasoning about source plausibility) that do not manifest in the neural measures examined. These deliberative processes may engage prefrontal regions in ways not optimally captured by our electrode configuration. Second, the priming effect may operate through episodic memory systems during the judgment phase, recruiting medial temporal structures that are difficult to assess with scalp EEG. Third, the null neural findings may indicate that priming operates through top-down cognitive mechanisms that modulate behavioral responses without altering the basic perceptual or attentional processing indexed by our measures.
+
+The convergent null findings across multiple neural indices---spanning both event-related and oscillatory measures of attention, affect, and engagement---strengthens the interpretation that visual priming influences authenticity judgments at a cognitive rather than perceptual level. This is consistent with the source monitoring and expectation-based accounts proposed above, suggesting that priming shapes how information is interpreted and evaluated rather than how it is initially perceived.
+
+The dissociation between behavioral and neural measures highlights the complexity of deepfake perception and suggests that detection processes may engage multiple cognitive systems at different processing stages. Future research with high-density EEG or fMRI might better localize the neural substrates of priming effects on media authenticity judgments.
+
+\subsection{Confidence and Metacognition}
+
+The confidence-accuracy dissociation we observed (supporting H3) raises concerns about individuals' ability to know when they are being deceived. Participants were significantly more confident in their memory judgments than audio judgments, yet neither confidence level predicted accuracy. This metacognitive blindness has been observed across domains of synthetic media detection \citep{nightingale2022ai} and suggests that subjective certainty should not be trusted as an indicator of authenticity.
+
+This finding has implications for legal and journalistic contexts where witness confidence in audio or video evidence may carry unwarranted weight. Educating fact-checkers, journalists, and jurors about the limitations of subjective confidence in synthetic media detection may be valuable.
+
+\subsection{Limitations and Future Directions}
+
+Several limitations constrain interpretation of these findings:
+
+\textbf{Sample characteristics.} Our sample comprised young adult female K-pop fans with existing familiarity with target idols. While this was intentional for examining priming effects in a population with developed schemas, results may not generalize to populations unfamiliar with the artists, to other age groups, or to male listeners. Cross-demographic replication is needed.
+
+\textbf{Ecological validity.} The controlled laboratory environment differs from naturalistic social media contexts where attention is divided, multiple cues compete, and content is encountered within social feeds. Field studies examining priming effects in more realistic consumption contexts would strengthen ecological validity.
+
+\textbf{Stimulus specificity.} We examined two specific idols and one AI generation method. The protective priming effect might vary with different celebrities, genres, or synthesis technologies. Replication across diverse stimuli would establish generalizability.
+
+\textbf{Mechanism identification.} While we propose several theoretical mechanisms (reference standards, enhanced source monitoring, expectation violation), the current design does not allow definitive discrimination among them. Future research could manipulate proposed mechanisms independently to identify which drives protective effects.
+
+\textbf{Temporal dynamics.} We measured effects immediately after priming. Whether protective effects persist over delays, and whether repeated exposure maintains or diminishes protection, remain open questions with practical implications for intervention design.
+
+\textbf{EEG limitations.} The null EEG findings should be interpreted cautiously. The relatively small number of epochs per participant (4 trials) limited statistical power for detecting neural differences. Additionally, the dry electrode system, while practical for participant comfort, may have introduced more noise than laboratory-grade wet electrode systems. Future studies should consider increasing trial counts and employing higher-density electrode arrays to better characterize the neural correlates of priming effects.
+
+These limitations notwithstanding, the present findings open productive avenues for future research. The unexpected direction of our results---protection rather than vulnerability---invites reconceptualization of how prior knowledge and contextual cues shape synthetic media evaluation. As AI-generated content proliferates, understanding these dynamics becomes increasingly crucial.
+
+\section{Conclusion}
+
+This study provides initial evidence that multimodal priming with AI-generated content may protect against rather than exacerbate false memory formation for synthetic media. The finding that AI cover priming significantly reduced false memory rates (7.1\% vs.\ 17.8\%, $p = .030$) and showed trends toward improved AI audio detection challenges prevailing assumptions about the dangers of contextual manipulation.
+
+These results suggest that the relationship between priming and media authenticity perception is more nuanced than previously theorized. Rather than uniformly inducing vulnerability, exposure to AI-generated content may serve as a calibration tool that enhances source monitoring and perceptual discrimination. The priming that we expected to deceive instead appeared to protect---potentially by raising awareness of AI synthesis capabilities and sensitizing listeners to synthetic vocal artifacts.
+
+As AI-generated media becomes increasingly prevalent and sophisticated, understanding these protective mechanisms becomes crucial for developing effective media literacy interventions. The implications extend beyond deepfake detection to broader questions about how prior knowledge and expectations shape media evaluation in an increasingly synthetic information environment.
+
+In a media landscape where synthetic content is proliferating, harnessing the protective potential of authentic contextual familiarity may prove as important as warnings about its dangers. Our findings suggest that exposure to truth may be among our best defenses against deception.
+
+% ============================================================================
+% REFERENCES
+% ============================================================================
+
+\bibliographystyle{apalike}
+
+\begin{thebibliography}{99}
+
+\bibitem[Arik et al.(2018)]{arik2018neural}
+Arik, S. O., Chen, J., Peng, K., Ping, W., \& Zhou, Y. (2018). Neural voice cloning with a few samples. \textit{Advances in Neural Information Processing Systems}, 31.
+
+\bibitem[Blue et al.(2022)]{blue2022you}
+Blue, L., Abdullah, H., Vargas, L., \& Traynor, P. (2022). Who are you (I really wanna know)? Detecting audio deepfakes through vocal tract reconstruction. \textit{Proceedings of the 31st USENIX Security Symposium}, 2691--2708.
+
+\bibitem[Boczkowski et al.(2017)]{boczkowski2017incidental}
+Boczkowski, P. J., Mitchelstein, E., \& Matassi, M. (2017). Incidental news: How young people consume news on social media. \textit{Proceedings of the 50th Hawaii International Conference on System Sciences}.
+
+\bibitem[Chesney \& Citron(2019)]{chesney2019deep}
+Chesney, R., \& Citron, D. K. (2019). Deep fakes: A looming challenge for privacy, democracy, and national security. \textit{California Law Review}, 107, 1753--1820.
+
+\bibitem[Citron(2022)]{citron2022deepfakes}
+Citron, D. K. (2022). \textit{The fight for privacy: Protecting dignity, identity, and love in the digital age}. W. W. Norton.
+
+\bibitem[Click et al.(2013)]{click2013fandom}
+Click, M. A., Lee, H., \& Holladay, H. W. (2013). Making monsters: Lady Gaga, fan identification, and social media. \textit{Popular Music and Society}, 36(3), 360--379.
+
+\bibitem[Crombag et al.(1996)]{crombag1996crashing}
+Crombag, H. F., Wagenaar, W. A., \& Van Koppen, P. J. (1996). Crashing memories and the problem of ``source monitoring.'' \textit{Applied Cognitive Psychology}, 10(2), 95--104.
+
+\bibitem[Dolhansky et al.(2020)]{dolhansky2020deepfake}
+Dolhansky, B., Bitton, J., Pflaum, B., Lu, J., Howes, R., Wang, M., \& Ferrer, C. C. (2020). The deepfake detection challenge dataset. \textit{arXiv preprint arXiv:2006.07397}.
+
+\bibitem[Domke et al.(2002)]{domke2002priming}
+Domke, D., Shah, D. V., \& Wackman, D. B. (2002). Media priming effects: Accessibility, association, and activation. \textit{International Journal of Public Opinion Research}, 10(1), 51--74.
+
+\bibitem[Fiske \& Taylor(1991)]{fiske1991social}
+Fiske, S. T., \& Taylor, S. E. (1991). \textit{Social cognition} (2nd ed.). McGraw-Hill.
+
+\bibitem[Frenda et al.(2013)]{frenda2013false}
+Frenda, S. J., Knowles, E. D., Saletan, W., \& Loftus, E. F. (2013). False memories of fabricated political events. \textit{Journal of Experimental Social Psychology}, 49(2), 280--286.
+
+\bibitem[Garry et al.(1996)]{garry1996imagination}
+Garry, M., Manning, C. G., Loftus, E. F., \& Sherman, S. J. (1996). Imagination inflation: Imagining a childhood event inflates confidence that it occurred. \textit{Psychonomic Bulletin \& Review}, 3(2), 208--214.
+
+\bibitem[Gibson(1969)]{gibson1969perceptual}
+Gibson, E. J. (1969). \textit{Principles of perceptual learning and development}. Appleton-Century-Crofts.
+
+\bibitem[Goldstone(1998)]{goldstone1998perceptual}
+Goldstone, R. L. (1998). Perceptual learning. \textit{Annual Review of Psychology}, 49(1), 585--612.
+
+\bibitem[Gramfort et al.(2013)]{gramfort2013meg}
+Gramfort, A., Luessi, M., Larson, E., Engemann, D. A., Strohmeier, D., Brodbeck, C., ... \& H\"{a}m\"{a}l\"{a}inen, M. (2013). MEG and EEG data analysis with MNE-Python. \textit{Frontiers in Neuroscience}, 7, 267.
+
+\bibitem[Groh et al.(2022)]{groh2022deepfake}
+Groh, M., Epstein, Z., Firestone, C., \& Picard, R. (2022). Deepfake detection by human crowds, machines, and machine-informed crowds. \textit{Proceedings of the National Academy of Sciences}, 119(1), e2110013119.
+
+\bibitem[Horton \& Wohl(1956)]{horton1956mass}
+Horton, D., \& Wohl, R. R. (1956). Mass communication and para-social interaction: Observations on intimacy at a distance. \textit{Psychiatry}, 19(3), 215--229.
+
+\bibitem[Hughson \& Boakes(2002)]{hughson2005wine}
+Hughson, A. L., \& Boakes, R. A. (2002). The knowing nose: The role of knowledge in wine expertise. \textit{Food Quality and Preference}, 13(7-8), 463--472.
+
+\bibitem[Jia et al.(2018)]{jia2018transfer}
+Jia, Y., Zhang, Y., Weiss, R. J., Wang, Q., Shen, J., Ren, F., ... \& Wu, Y. (2018). Transfer learning from speaker verification to multispeaker text-to-speech synthesis. \textit{Advances in Neural Information Processing Systems}, 31.
+
+\bibitem[Jin(2016)]{jin2016new}
+Jin, D. Y. (2016). \textit{New Korean Wave: Transnational cultural power in the age of social media}. University of Illinois Press.
+
+\bibitem[Johnson \& Raye(1981)]{johnson1988reality}
+Johnson, M. K., \& Raye, C. L. (1981). Reality monitoring. \textit{Psychological Review}, 88(1), 67--85.
+
+\bibitem[Johnson et al.(1993)]{johnson1993source}
+Johnson, M. K., Hashtroudi, S., \& Lindsay, D. S. (1993). Source monitoring. \textit{Psychological Bulletin}, 114(1), 3--28.
+
+\bibitem[Kraus \& Chandrasekaran(2010)]{kraus2014music}
+Kraus, N., \& Chandrasekaran, B. (2010). Music training for the development of auditory skills. \textit{Nature Reviews Neuroscience}, 11(8), 599--605.
+
+\bibitem[Kreiman \& Sidtis(2011)]{kreiman2011foundations}
+Kreiman, J., \& Sidtis, D. (2011). \textit{Foundations of voice studies: An interdisciplinary approach to voice production and perception}. Wiley-Blackwell.
+
+\bibitem[Lavan et al.(2019)]{lavan2019flexible}
+Lavan, N., Burton, A. M., Scott, S. K., \& McGettigan, C. (2019). Flexible voices: Identity perception from variable vocal signals. \textit{Psychonomic Bulletin \& Review}, 26(1), 90--102.
+
+\bibitem[Lee \& Ho(2019)]{lee2019kpop}
+Lee, S., \& Ho, A. (2019). K-pop fans' identity and fandom community: A case study of BTS fans. \textit{Journal of Fandom Studies}, 7(3), 261--279.
+
+\bibitem[Lindsay(2014)]{lindsay2014sourcemonitoring}
+Lindsay, D. S. (2014). Memory source monitoring applied. In T. J. Perfect \& D. S. Lindsay (Eds.), \textit{The SAGE handbook of applied memory} (pp. 59--75). SAGE.
+
+\bibitem[Loftus(2005)]{loftus2005planting}
+Loftus, E. F. (2005). Planting misinformation in the human mind: A 30-year investigation of the malleability of memory. \textit{Learning \& Memory}, 12(4), 361--366.
+
+\bibitem[Loftus \& Palmer(1974)]{loftus1974reconstruction}
+Loftus, E. F., \& Palmer, J. C. (1974). Reconstruction of automobile destruction: An example of the interaction between language and memory. \textit{Journal of Verbal Learning and Verbal Behavior}, 13(5), 585--589.
+
+\bibitem[Loftus et al.(1978)]{loftus1978semantic}
+Loftus, E. F., Miller, D. G., \& Burns, H. J. (1978). Semantic integration of verbal information into a visual memory. \textit{Journal of Experimental Psychology: Human Learning and Memory}, 4(1), 19--31.
+
+\bibitem[Meyer et al.(1997)]{meyer1997surprise}
+Meyer, W. U., Reisenzein, R., \& Schützwohl, A. (1997). Toward a process analysis of emotions: The case of surprise. \textit{Motivation and Emotion}, 21(3), 251--274.
+
+\bibitem[Müller et al.(2022)]{muller2022human}
+Müller, N. M., Czempin, P., Dieckmann, F., Frober, A., \& Böttinger, K. (2022). Does audio deepfake detection generalize? \textit{Proceedings of Interspeech}, 2783--2787.
+
+\bibitem[Murphy et al.(2019)]{murphy2019false}
+Murphy, G., Loftus, E. F., Grady, R. H., Levine, L. J., \& Greene, C. M. (2019). False memories for fake news during Ireland's abortion referendum. \textit{Psychological Science}, 30(10), 1449--1459.
+
+\bibitem[Nightingale et al.(2022)]{nightingale2022ai}
+Nightingale, S. J., \& Farid, H. (2022). AI-synthesized faces are indistinguishable from real faces and more trustworthy. \textit{Proceedings of the National Academy of Sciences}, 119(8), e2120481119.
+
+\bibitem[Nosofsky(1986)]{nosofsky1986attention}
+Nosofsky, R. M. (1986). Attention, similarity, and the identification-categorization relationship. \textit{Journal of Experimental Psychology: General}, 115(1), 39--61.
+
+\bibitem[Ost et al.(2008)]{ost2008false}
+Ost, J., Vrij, A., Costall, A., \& Bull, R. (2002). Crashing memories and reality monitoring: Distinguishing between perceptions, imaginings and ``false memories.'' \textit{Applied Cognitive Psychology}, 16(2), 125--134.
+
+\bibitem[Pennycook \& Rand(2021)]{pennycook2021psychology}
+Pennycook, G., \& Rand, D. G. (2021). The psychology of fake news. \textit{Trends in Cognitive Sciences}, 25(5), 388--402.
+
+\bibitem[Roskos-Ewoldsen et al.(2007)]{roskosewoldsen2007priming}
+Roskos-Ewoldsen, D. R., Roskos-Ewoldsen, B., \& Carpentier, F. R. D. (2007). Media priming: An updated synthesis. In J. Bryant \& M. B. Oliver (Eds.), \textit{Media effects: Advances in theory and research} (3rd ed., pp. 74--93). Routledge.
+
+\bibitem[Rössler et al.(2019)]{rossler2019faceforensics}
+Rössler, A., Cozzolino, D., Verdoliva, L., Riess, C., Thies, J., \& Nießner, M. (2019). FaceForensics++: Learning to detect manipulated facial images. In \textit{Proceedings of the IEEE/CVF International Conference on Computer Vision} (pp. 1--11).
+
+\bibitem[Scherer(2001)]{scherer2001appraisal}
+Scherer, K. R. (2001). Appraisal considered as a process of multilevel sequential checking. In K. R. Scherer, A. Schorr, \& T. Johnstone (Eds.), \textit{Appraisal processes in emotion} (pp. 92--120). Oxford University Press.
+
+\bibitem[Scheufele \& Tewksbury(2007)]{scheufele2000agenda}
+Scheufele, D. A., \& Tewksbury, D. (2007). Framing, agenda setting, and priming: The evolution of three media effects models. \textit{Journal of Communication}, 57(1), 9--20.
+
+\bibitem[Stupp(2019)]{stupp2019fraudsters}
+Stupp, C. (2019, August 30). Fraudsters used AI to mimic CEO's voice in unusual cybercrime case. \textit{The Wall Street Journal}.
+
+\bibitem[Tan et al.(2021)]{tan2021survey}
+Tan, X., Qin, T., Soong, F., \& Liu, T. Y. (2021). A survey on neural speech synthesis. \textit{arXiv preprint arXiv:2106.15561}.
+
+\bibitem[Vaccari \& Chadwick(2020)]{vaccari2020deepfakes}
+Vaccari, C., \& Chadwick, A. (2020). Deepfakes and disinformation: Exploring the impact of synthetic political video on deception, uncertainty, and trust in news. \textit{Social Media + Society}, 6(1), 2056305120903408.
+
+\bibitem[Vraga \& Bode(2020)]{vraga2020news}
+Vraga, E. K., \& Bode, L. (2020). Defining misinformation and understanding its bounded nature: Using expertise and evidence for describing misinformation. \textit{Political Communication}, 37(1), 136--144.
+
+\bibitem[Yoon(2019)]{yoon2019kpop}
+Yoon, K. (2019). Transnational fandom in the making: K-pop fans in Vancouver. \textit{International Communication Gazette}, 81(2), 176--192.
+
+\bibitem[Yue et al.(2021)]{yue2021parasocial}
+Yue, B., Chao, M., Cheng, J., \& Sheng, L. (2021). Understanding K-pop fans' parasocial interaction through social media. \textit{Journal of Popular Music Studies}, 33(2), 139--157.
+
+\end{thebibliography}
+
+% ============================================================================
+% APPENDIX
+% ============================================================================
+
+\newpage
+\appendix
+
+\section{Experimental Group Design}
+
+\begin{table}[H]
+\centering
+\caption{Experimental Groups and Stimuli Assignment}
+\begin{tabular}{cllll}
+\toprule
+Group & Condition & Priming Stimuli & First Idol & Audio Order \\
+\midrule
+1 & Treatment & AI Cover (Idol) & Hanni & Real $\rightarrow$ AI \\
+2 & Treatment & AI Cover (Idol) & Hanni & AI $\rightarrow$ Real \\
+3 & Treatment & AI Cover (Idol) & Jennie & Real $\rightarrow$ AI \\
+4 & Treatment & AI Cover (Idol) & Jennie & AI $\rightarrow$ Real \\
+5 & Treatment & AI Cover (Idol) & Hanni & Real $\rightarrow$ AI \\
+6 & Treatment & AI Cover (Idol) & Hanni & AI $\rightarrow$ Real \\
+7 & Treatment & AI Cover (Idol) & Jennie & Real $\rightarrow$ AI \\
+8 & Treatment & AI Cover (Idol) & Jennie & AI $\rightarrow$ Real \\
+\midrule
+9 & Neutral & Classical/Synthpop & Hanni & Real $\rightarrow$ AI \\
+10 & Neutral & Classical/Synthpop & Hanni & AI $\rightarrow$ Real \\
+11 & Neutral & Classical/Synthpop & Jennie & Real $\rightarrow$ AI \\
+12 & Neutral & Classical/Synthpop & Jennie & AI $\rightarrow$ Real \\
+13 & Neutral & Classical/Synthpop & Hanni & Real $\rightarrow$ AI \\
+14 & Neutral & Classical/Synthpop & Hanni & AI $\rightarrow$ Real \\
+15 & Neutral & Classical/Synthpop & Jennie & Real $\rightarrow$ AI \\
+16 & Neutral & Classical/Synthpop & Jennie & AI $\rightarrow$ Real \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Survey Instrument}
+
+\textbf{For each audio clip, participants responded to:}
+
+\begin{enumerate}
+    \item Have you seen this idol perform this song in a video? (Yes/No)
+    \item How confident are you in your answer to question 1? \\
+    (1 = Not at all confident, 5 = Very confident)
+    \item How do you think this audio was created?
+    \begin{itemize}
+        \item[(1)] Deep learning-based AI voice synthesis
+        \item[(2)] MIDI-based vocal synthesis engine (e.g., Vocaloid)
+        \item[(3)] Cover singer (live recording, no post-processing)
+        \item[(4)] Cover singer (with post-processing)
+        \item[(5)] Actual idol (live recording, no post-processing)
+        \item[(6)] Actual idol (studio recording with post-processing)
+    \end{itemize}
+    \item How confident are you in your answer to question 3? (1--5)
+    \item Rate how much each factor influenced your judgment (1--5 each):
+    \begin{itemize}
+        \item Pronunciation
+        \item Intonation
+        \item Emotional expression
+        \item Audio quality
+        \item Rhythm
+        \item Breathing naturalness
+    \end{itemize}
+    \item Rate your overall liking of the audio (1--5)
+\end{enumerate}
+
+\textbf{Per-idol measures (completed twice, once per idol):}
+\begin{enumerate}
+    \setcounter{enumi}{6}
+    \item How often do you listen to this idol's music? (1--5)
+    \item How well do you know this idol's voice? (1--5)
+    \item Where have you encountered this idol's voice? (Select all that apply)
+    \begin{itemize}
+        \item Official music releases
+        \item Music videos
+        \item Live performances
+        \item Variety show appearances
+        \item Social media content
+        \item Fan-made content
+        \item Other
+    \end{itemize}
+    \item Any other factors that influenced your judgment? (Open-ended)
+\end{enumerate}
+
+\section{Descriptive Statistics by Group}
+
+\begin{table}[H]
+\centering
+\caption{False Memory Rate by Experimental Group}
+\begin{tabular}{cccc}
+\toprule
+Group & Condition & $n$ & False Memory Rate (\%) \\
+\midrule
+1 & Treatment & 16 & 12.5 \\
+2 & Treatment & 16 & 6.2 \\
+3 & Treatment & 16 & 25.0 \\
+4 & Treatment & 12 & 0.0 \\
+5 & Treatment & 12 & 0.0 \\
+6 & Treatment & 16 & 6.2 \\
+7 & Treatment & 16 & 0.0 \\
+8 & Treatment & 8 & 0.0 \\
+\midrule
+9 & Neutral & 16 & 25.0 \\
+10 & Neutral & 16 & 18.8 \\
+11 & Neutral & 8 & 12.5 \\
+12 & Neutral & 12 & 8.3 \\
+13 & Neutral & 9 & 33.3 \\
+14 & Neutral & 12 & 25.0 \\
+15 & Neutral & 8 & 25.0 \\
+16 & Neutral & 20 & 5.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textit{Note.} Group 13 has $n = 9$ valid observations due to 3 excluded cases with missing false memory responses.
+
+\section{AI Voice Generation Technical Details}
+
+Voice conversion was performed using Sorisori AI (https://sorisori.ai), a commercial Korean AI singing voice conversion platform:
+
+\begin{itemize}
+    \item \textbf{Platform:} Sorisori AI---a commercial service providing pre-trained voice models of K-pop artists
+    \item \textbf{Voice models:} Pre-existing Hanni (NewJeans) and Jennie (BLACKPINK) voice models provided by the platform
+    \item \textbf{Source audio:} ``Tango'' by Abir (original vocal track)
+    \item \textbf{Hanni AI clip:} Sorisori AI voice conversion only, no additional post-processing
+    \item \textbf{Jennie AI clip:} Sorisori AI voice conversion, followed by post-processing in Ableton Live to add live acoustic ambiance (reverb, spatial characteristics) matching Jennie's authentic live recording. Importantly, the vocal characteristics remained unchanged; only ambient/environmental audio was adjusted to control for production quality differences between studio and live recordings.
+\end{itemize}
+
+\end{document}

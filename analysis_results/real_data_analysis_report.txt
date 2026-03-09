@@ -1,0 +1,111 @@
+================================================================================
+BEHAVIORAL DATA ANALYSIS REPORT
+Visual Priming & Deepfake Audio Perception Study
+================================================================================
+
+Generated: 2026-03-09 14:18:27
+
+--------------------------------------------------------------------------------
+1. SAMPLE CHARACTERISTICS
+--------------------------------------------------------------------------------
+
+Total participants: 54 females aged 18-29
+Total observations collected: 216
+Valid observations (with Q1 response): 213
+Excluded observations: 3 (missing Q1 responses in Group 13)
+
+Condition breakdown:
+  Treatment (Groups 1-8): 112 observations
+  Neutral (Groups 9-16): 101 observations
+
+--------------------------------------------------------------------------------
+2. FALSE MEMORY ANALYSIS
+--------------------------------------------------------------------------------
+
+Overall false memory rate: 12.2%
+
+By Condition:
+  Treatment: 7.1% (8/112)
+  Neutral: 17.8% (18/101)
+
+Chi-square test (with Yates correction):
+  χ²(1) = 4.70, p = 0.0302
+  Cramér's V = 0.149
+
+Chi-square test (without Yates correction):
+  χ²(1) = 5.65, p = 0.0174
+
+False memory rate by group:
+  Group 1: 12.5% (n=16)
+  Group 2: 6.2% (n=16)
+  Group 3: 25.0% (n=16)
+  Group 4: 0.0% (n=12)
+  Group 5: 0.0% (n=12)
+  Group 6: 6.2% (n=16)
+  Group 7: 0.0% (n=16)
+  Group 8: 0.0% (n=8)
+  Group 9: 25.0% (n=16)
+  Group 10: 18.8% (n=16)
+  Group 11: 12.5% (n=8)
+  Group 12: 8.3% (n=12)
+  Group 13: 33.3% (n=9)
+  Group 14: 25.0% (n=12)
+  Group 15: 25.0% (n=8)
+  Group 16: 5.0% (n=20)
+
+--------------------------------------------------------------------------------
+3. AUDIO SOURCE JUDGMENT ANALYSIS
+--------------------------------------------------------------------------------
+
+By Condition (%):
+  Treatment: AI=47.3%, Other=19.6%, Real=33.0%
+  Neutral: AI=41.6%, Other=26.7%, Real=31.7%
+
+Overall: AI=44.6%, Other=23.0%, Real=32.4%
+
+--------------------------------------------------------------------------------
+4. CONFIDENCE ANALYSIS
+--------------------------------------------------------------------------------
+
+Q2 (False Memory Confidence):
+  Treatment: M = 3.62, SD = 1.11
+  Neutral: M = 3.79, SD = 1.12
+  t-test: t = -1.10, p = 0.2748
+
+Q4 (Audio Judgment Confidence):
+  Treatment: M = 2.87, SD = 0.95
+  Neutral: M = 2.99, SD = 0.87
+  t-test: t = -0.92, p = 0.3587
+
+--------------------------------------------------------------------------------
+5. LIKEABILITY ANALYSIS
+--------------------------------------------------------------------------------
+
+Q6 (Overall Likeability):
+  Treatment: M = 3.37, SD = 0.84
+  Neutral: M = 3.13, SD = 0.83
+  t-test: t = 2.07, p = 0.0397 *
+
+--------------------------------------------------------------------------------
+6. JUDGMENT FACTOR IMPORTANCE
+--------------------------------------------------------------------------------
+
+Mean importance rating (1-5 scale, higher = more influential):
+  음질: 3.87
+  숨소리나 호흡의 자연스러운 정도: 3.65
+  억양: 3.24
+  발음: 3.20
+  감정 표현: 3.01
+  박자감(리듬감): 2.89
+
+--------------------------------------------------------------------------------
+7. EXCLUDED DATA DETAILS
+--------------------------------------------------------------------------------
+
+Total excluded: 3 observations
+Reason: Missing Q1 (false memory) response
+Location: Group 13, clips from 2 participants
+
+================================================================================
+Statistical significance: * p < .05, ** p < .01, *** p < .001
+================================================================================

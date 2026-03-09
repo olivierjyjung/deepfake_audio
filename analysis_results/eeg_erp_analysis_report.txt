@@ -1,0 +1,60 @@
+======================================================================
+EEG ERP ANALYSIS REPORT
+Visual Priming & Deepfake Audio Perception Study
+======================================================================
+
+----------------------------------------------------------------------
+1. SAMPLE CHARACTERISTICS
+----------------------------------------------------------------------
+
+Total participants with valid EEG: 47
+  Treatment condition: 22
+  Neutral condition: 25
+
+Total epochs analyzed:
+  Treatment: 88
+  Neutral: 100
+
+----------------------------------------------------------------------
+2. EEG RECORDING PARAMETERS
+----------------------------------------------------------------------
+
+Channels: 24 (EEG)
+Sampling rate: 300 Hz
+Bandpass filter: 0.1-40 Hz
+Notch filter: 60 Hz
+Reference: Average
+Epoch window: -200 to 800 ms
+Baseline correction: -200 to 0 ms
+
+----------------------------------------------------------------------
+3. ERP COMPONENT ANALYSIS
+----------------------------------------------------------------------
+
+MMN (100-250 ms):
+  Treatment: M = -33.085 μV, SD = 164.103
+  Neutral:   M = 1.178 μV, SD = 38.504
+  t(45) = -1.014, p = 0.3159
+  Cohen's d = -0.296
+
+P300 (250-500 ms):
+  Treatment: M = -29.682 μV, SD = 165.060
+  Neutral:   M = 2.173 μV, SD = 51.707
+  t(45) = -0.916, p = 0.3643
+  Cohen's d = -0.268
+
+LPP (400-700 ms):
+  Treatment: M = -9.003 μV, SD = 192.709
+  Neutral:   M = 4.983 μV, SD = 102.164
+  t(45) = -0.316, p = 0.7533
+  Cohen's d = -0.092
+
+----------------------------------------------------------------------
+4. INTERPRETATION
+----------------------------------------------------------------------
+
+No significant differences found between conditions.
+
+======================================================================
+Statistical significance: * p < .05, ** p < .01, *** p < .001
+======================================================================
