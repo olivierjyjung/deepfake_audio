@@ -18,6 +18,10 @@
 \usepackage{float}
 \usepackage{multirow}
 \usepackage{xcolor}
+\usepackage{subcaption}
+
+% Graphics path
+\graphicspath{{figures/}}
 
 % Document settings
 \doublespacing
@@ -176,6 +180,15 @@ A between-subjects design was employed with two conditions (Treatment vs.\ Neutr
 
 Each participant evaluated four audio clips total---two featuring Hanni's voice (one authentic, one AI-generated) and two featuring Jennie's voice (one authentic, one AI-generated). The order of authentic and AI-generated clips was counterbalanced across groups.
 
+Figure~\ref{fig:design} illustrates the experimental procedure for both conditions.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_design.png}
+    \caption{Experimental design schematic. Participants in both conditions completed priming and test phases while EEG was recorded continuously. Treatment participants viewed AI cover thumbnails during priming; Neutral participants viewed classical or synthpop album art.}
+    \label{fig:design}
+\end{figure}
+
 \subsection{Stimuli}
 
 \subsubsection{Visual Stimuli}
@@ -195,6 +208,43 @@ This study employed a multimodal priming paradigm combining visual and auditory 
 \end{itemize}
 
 During the subsequent test phase, participants viewed a static image of the target idol while listening to the test audio clips. All priming and test stimuli were presented for 30 seconds each.
+
+Figure~\ref{fig:stimuli} illustrates the visual stimuli used in each experimental condition.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{hanni_ai_visual_cue.png}
+        \caption{Treatment: Hanni AI cover}
+        \label{fig:hanni_ai}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{jennie_ai_visual_cue.png}
+        \caption{Treatment: Jennie AI cover}
+        \label{fig:jennie_ai}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{classic_visual_cue.png}
+        \caption{Neutral: Classical music}
+        \label{fig:classical}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{synthpop_visual_cue.png}
+        \caption{Neutral: Synthpop music}
+        \label{fig:synthpop}
+    \end{subfigure}
+    \caption{Visual priming stimuli by condition. Treatment condition (top row): AI-generated idol cover thumbnails explicitly labeled as ``AI.'' Neutral condition (bottom row): Classical music (Holst's \textit{The Planets}) and synthpop album artwork with no AI-related content.}
+    \label{fig:stimuli}
+\end{figure}
 
 \subsubsection{Audio Stimuli}
 
@@ -349,7 +399,14 @@ Total & 213 & 26 & 12.2 \\
 \label{tab:false_memory}
 \end{table}
 
-A chi-square test of independence revealed a significant association between experimental condition and false memory reports, $\chi^2(1, N = 213) = 4.70$, $p = .030$, Cramér's $V = .149$, representing a small-to-medium effect. The direction of this effect was opposite to predictions: visual priming was associated with \textit{reduced} rather than increased false memory rates.
+A chi-square test of independence revealed a significant association between experimental condition and false memory reports, $\chi^2(1, N = 213) = 4.70$, $p = .030$, Cramér's $V = .149$, representing a small-to-medium effect. The direction of this effect was opposite to predictions: visual priming was associated with \textit{reduced} rather than increased false memory rates (Figure~\ref{fig:false_memory}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{fig_false_memory.png}
+    \caption{False memory rates by experimental condition. The Treatment condition (visual priming with AI cover content) showed significantly lower false memory rates (7.1\%) compared to the Neutral control condition (17.8\%), $p = .030$.}
+    \label{fig:false_memory}
+\end{figure}
 
 To examine potential confounds, we conducted supplementary analyses examining false memory rates by idol (Hanni vs.\ Jennie) and audio type (authentic vs.\ AI-generated). The protective effect of visual priming was consistent across both idols and both audio types, with no significant interactions (all $p$s $>$ .15).
 
@@ -377,7 +434,14 @@ Total & 95 & 49 & 69 & 44.6 & 23.0 & 32.4 \\
 
 Participants in the Treatment condition showed a higher tendency to judge audio as AI-generated (47.3\% vs.\ 41.6\%), contrary to H2 which predicted impaired detection. A chi-square test comparing the full distribution of judgments across conditions approached but did not reach conventional significance, $\chi^2(2, N = 213) = 2.14$, $p = .343$, Cramér's $V = .100$.
 
-When collapsing categories to compare AI judgments versus non-AI judgments, the difference remained non-significant, $\chi^2(1, N = 213) = 0.69$, $p = .406$, though the direction consistently favored the Treatment condition. The overall rate of AI identification across conditions was 44.6\%, indicating moderate but imperfect detection.
+When collapsing categories to compare AI judgments versus non-AI judgments, the difference remained non-significant, $\chi^2(1, N = 213) = 0.69$, $p = .406$, though the direction consistently favored the Treatment condition (Figure~\ref{fig:audio_judgment}). The overall rate of AI identification across conditions was 44.6\%, indicating moderate but imperfect detection.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{fig_audio_judgment.png}
+    \caption{Audio source judgments by experimental condition. Treatment participants showed a higher tendency to correctly identify AI-generated audio (47.3\%) compared to Neutral participants (41.6\%), though this difference was not statistically significant.}
+    \label{fig:audio_judgment}
+\end{figure}
 
 \subsection{Confidence Ratings}
 
@@ -487,7 +551,14 @@ Engagement Index & 0.048 & 0.038 & 0.041 & 0.018 & 0.92 & .359 \\
 \label{tab:freq}
 \end{table}
 
-No significant differences emerged between conditions for any frequency-based index (all $p$s $>$ .35). Effect sizes were negligible to small (Cohen's $d$ = 0.03 to 0.24).
+No significant differences emerged between conditions for any frequency-based index (all $p$s $>$ .35). Effect sizes were negligible to small (Cohen's $d$ = 0.03 to 0.24). Figure~\ref{fig:eeg_freq} illustrates the comparison of frequency-based indices between conditions.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{fig_eeg_frequency.png}
+    \caption{Frequency-based neural indices by condition. Error bars represent standard deviations. No significant differences were observed between Treatment and Neutral conditions for Relative Alpha (RA), RSMR, or Engagement Index (all $p$s $>$ .35).}
+    \label{fig:eeg_freq}
+\end{figure}
 
 \subsubsection{Summary of Neural Findings}
 
